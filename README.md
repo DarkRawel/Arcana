@@ -31,4 +31,4 @@ Inspired by popular trading card games, this project is being developed as a God
 1. Install **Godot Engine 4.x** from [https://godotengine.org/](https://godotengine.org/)  
 2. Clone this repository:  
    ```bash
-   git clone [your-repo-url]
+   git clone https://github.com/DarkRawel/Arcana

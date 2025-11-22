@@ -10,6 +10,11 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
+config/name="card-game"
+run/main_scene="uid://hud0uca7fal7"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

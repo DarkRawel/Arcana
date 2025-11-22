@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvfgeyyd6tv4h"]
+
+[ext_resource type="PackedScene" uid="uid://hud0uca7fal7" path="res://scenes/card.tscn" id="1_80nbo"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Card" parent="." instance=ExtResource("1_80nbo")]
+offset_left = 356.0
+offset_top = 113.0
+offset_right = 656.0
+offset_bottom = 533.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(579, 326)

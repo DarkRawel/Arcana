@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://hud0uca7fal7"]
+
+[ext_resource type="Texture2D" uid="uid://d4gp78tlrgib1" path="res://sprites/Card RPG UI&Charactors/box.png" id="1_l72q7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7oevv"]
+size = Vector2(301, 419)
+
+[node name="Card" type="Control"]
+custom_minimum_size = Vector2(300, 420)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 42.0
+offset_bottom = 40.0
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(150.25, 211)
+scale = Vector2(11.519232, 16.23077)
+texture = ExtResource("1_l72q7")
+region_enabled = true
+region_rect = Rect2(52.010372, 26.073166, 26.02164, 26.04911)
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 47.0
+offset_right = 246.34746
+offset_bottom = 156.64157
+scale = Vector2(0.9134611, -0.14593005)
+
+[node name="ManaCost" type="Label" parent="."]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 63.0
+offset_right = 96.0
+offset_bottom = 268.0
+scale = Vector2(0.6, 0.16000044)
+
+[node name="Attack" type="Label" parent="."]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 323.0
+offset_right = 96.0
+offset_bottom = 528.0
+scale = Vector2(0.6, 0.16000044)
+
+[node name="Health" type="Label" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 323.0
+offset_right = 274.0
+offset_bottom = 529.0
+scale = Vector2(0.6, 0.16000044)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(150.5, 209.5)
+shape = SubResource("RectangleShape2D_7oevv")

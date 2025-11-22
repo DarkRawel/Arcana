@@ -1,6 +1,6 @@
 # Arcana 
 
-A card game inspired by **Magic: The Gathering** and **Yu-Gi-Oh!**, developed in **Godot Engine**.  
+A card game inspired by **Magic The Gathering** and **Yu-Gi-Oh!**, developed in **Godot Engine**.  
 The game focuses on strategic dueling, summoning creatures, casting spells, and building decks.  
 
 ## Table of Contents

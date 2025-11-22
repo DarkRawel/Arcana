@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="card-game"
-run/main_scene="uid://hud0uca7fal7"
+run/main_scene="uid://bvfgeyyd6tv4h"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/vsync/vsync_mode=0
 
 [rendering]
 

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://blbk7ypvogcuo"]
+
+[ext_resource type="Texture2D" uid="uid://d4gp78tlrgib1" path="res://sprites/Card RPG UI&Charactors/box.png" id="1_cv3wt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhn1m"]
+size = Vector2(6.5, 4.2777777)
+
+[node name="Card3" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 6)
+texture = ExtResource("1_cv3wt")
+region_enabled = true
+region_rect = Rect2(-0.1266203, 25.86, 26.086956, 25.942081)
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(4, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1.1920929e-06)
+scale = Vector2(4, 6)
+shape = SubResource("RectangleShape2D_rhn1m")

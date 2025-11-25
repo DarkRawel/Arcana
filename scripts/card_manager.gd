@@ -5,6 +5,7 @@ var card_being_dragged: Node2D
 var home_positions := {} #dictionary pre karty a ich pozície
 var card_base_position = [Vector2(475, 525), Vector2(580, 525)]
 var random = RandomNumberGenerator.new()
+var is_hovering_on_card
 
 func random_card(count := 2): # kolko kariet = count
 	random.randomize()
@@ -46,14 +47,46 @@ func _input(event):
 		if event.pressed:
 			var card = raycast_check_for_card()
 			if card:
-				card_being_dragged = card
+				start_drag(card)
 		else:
+			end_drag()
+
+func start_drag(card):
+	card_being_dragged = card
+	card.scale = Vector2(1, 1) # vypne highlite pokial je karta dragovana
+
+func end_drag():
 			if card_being_dragged != null:  #vráti sa naspäť
 				card_being_dragged.position = home_positions[card_being_dragged]
+			card_being_dragged.scale = Vector2(1.05, 1.05) # zapne highlite pokial je karta polozena
 			card_being_dragged = null
 
+func connect_card_signals(card): # bere signali z card_*
+	card.connect("hovered", on_hovered_over_card)
+	card.connect("hovered_off", on_hovered_off_card)
 
-func raycast_check_for_card():
+func on_hovered_over_card(card): # mys je na karte
+	if !is_hovering_on_card:
+		is_hovering_on_card = true
+		highlite_card(card, true)
+
+func on_hovered_off_card(card): # mys ne je na karte
+	highlite_card(card, false)
+	var new_card_hovered = raycast_check_for_card()
+	if new_card_hovered:
+		highlite_card(new_card_hovered, true)
+	else:
+		is_hovering_on_card = false
+
+func highlite_card(card, hovered): # tato funkcia zvacsi kartu a nakresli ju nad vsetko ostatne iba ked je mys na karte
+	if hovered:
+		card.scale = Vector2(1.05, 1.05)
+		card.z_index = 2
+	else:
+		card.scale = Vector2(1, 1)
+		card.z_index = 1
+
+func raycast_check_for_card(): # ak mys je na karte tak zoberie jej udaje
 	var space_state = get_world_2d().direct_space_state
 	var params := PhysicsPointQueryParameters2D.new()
 	params.position = get_global_mouse_position()

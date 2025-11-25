@@ -2,9 +2,12 @@ extends Node2D
 
 var screen_size
 var card_being_dragged: Node2D
+var home_positions := {} #dictionary pre karty a ich pozície
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
+	for card in get_children():
+		home_positions[card] = card.position #select všetky začiatočné pozície kariet
 
 func _process(delta: float) -> void:
 	if card_being_dragged:
@@ -19,6 +22,8 @@ func _input(event):
 			if card:
 				card_being_dragged = card
 		else:
+			if card_being_dragged != null:  #vráti sa naspäť
+				card_being_dragged.position = home_positions[card_being_dragged]
 			card_being_dragged = null
 
 

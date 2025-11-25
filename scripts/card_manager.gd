@@ -58,7 +58,7 @@ func start_drag(card):
 func end_drag():
 			if card_being_dragged != null:  #vráti sa naspäť
 				card_being_dragged.position = home_positions[card_being_dragged]
-			card_being_dragged.scale = Vector2(1.05, 1.05) # zapne highlite pokial je karta polozena
+				card_being_dragged.scale = Vector2(1.05, 1.05) # zapne highlite pokial je karta polozena
 			card_being_dragged = null
 
 func connect_card_signals(card): # bere signali z card_*

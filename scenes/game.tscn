@@ -1,21 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvfgeyyd6tv4h"]
+[gd_scene load_steps=9 format=3 uid="uid://bvfgeyyd6tv4h"]
 
 [ext_resource type="PackedScene" uid="uid://m8cfxnfmbpwi" path="res://scenes/card1.tscn" id="1_80nbo"]
-[ext_resource type="Texture2D" uid="uid://blbywan8vma7q" path="res://sprites/Dungeon Tile Set.png" id="1_iywne"]
 [ext_resource type="Script" uid="uid://t8xx0p0g51a3" path="res://scripts/card_manager.gd" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://csiaigsxpyld8" path="res://scenes/card_slot.tscn" id="2_gee14"]
 [ext_resource type="PackedScene" uid="uid://y5yiovd1xbf2" path="res://scenes/card_2.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://blbk7ypvogcuo" path="res://scenes/card_3.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://cepnvnbbhfqt5" path="res://scenes/card_4.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://doe8r73q8oaf0" path="res://scenes/card_5.tscn" id="7_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://4d1716045wpy" path="res://Background.png" id="8_0tnpc"]
 
 [node name="Game" type="Node2D"]
 
-[node name="PlaceHolderBackground" type="Sprite2D" parent="."]
-position = Vector2(575.00006, 323.99997)
-scale = Vector2(36.0625, 36.23529)
-texture = ExtResource("1_iywne")
-region_enabled = true
-region_rect = Rect2(127.95805, 30.031204, 32.004303, 17.880775)
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.75, 0.6328125)
+texture = ExtResource("8_0tnpc")
+
+[node name="CardSlot" parent="." instance=ExtResource("2_gee14")]
+position = Vector2(576, 250)
+
+[node name="CardSlot2" parent="." instance=ExtResource("2_gee14")]
+position = Vector2(450, 250)
 
 [node name="CardManager" type="Node2D" parent="."]
 script = ExtResource("1_yqjtg")

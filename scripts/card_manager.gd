@@ -49,7 +49,8 @@ func _input(event):
 			if card:
 				start_drag(card)
 		else:
-			end_drag()
+			if card_being_dragged:
+				end_drag()
 
 func start_drag(card):
 	card_being_dragged = card
@@ -58,7 +59,12 @@ func start_drag(card):
 func end_drag():
 			if card_being_dragged != null:  #vráti sa naspäť
 				card_being_dragged.position = home_positions[card_being_dragged]
-				card_being_dragged.scale = Vector2(1.05, 1.05) # zapne highlite pokial je karta polozena
+			card_being_dragged.scale = Vector2(1.05, 1.05) # zapne highlite pokial je karta polozena
+			var card_slot_found = raycast_check_for_card_slot() 
+			if card_slot_found and not card_slot_found.card_in_slot:
+				card_being_dragged.position = card_slot_found.position
+				card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = true # zastavi interakciu s Area2D/CollisionShape2D
+				card_slot_found.card_in_slot = true
 			card_being_dragged = null
 
 func connect_card_signals(card): # bere signali z card_*
@@ -86,18 +92,29 @@ func highlite_card(card, hovered): # tato funkcia zvacsi kartu a nakresli ju nad
 		card.scale = Vector2(1, 1)
 		card.z_index = 1
 
-func raycast_check_for_card(): # ak mys je na karte tak zoberie jej udaje
+# ked chces pouzit raycast na nieco ine tak len zmen masku z mask1 na mask* a layer z layer1 na layer*
+func raycast_check_for_card(): # ak mys na danej veci udana maskou tak ziska jej udaje
 	var space_state = get_world_2d().direct_space_state
-	var params := PhysicsPointQueryParameters2D.new()
+	var params = PhysicsPointQueryParameters2D.new()
 	params.position = get_global_mouse_position()
 	params.collide_with_areas = true   
-	params.collision_mask = 1          
-
+	params.collision_mask = 1 # zmenit z 1 na *
 	var result = space_state.intersect_point(params)
-
 	if result.size() > 0:
 		var collider = result[0].collider
 		var card = collider.get_parent()
 		return card  
+	return null
 
+func raycast_check_for_card_slot(): # raycast na slot
+	var space_state = get_world_2d().direct_space_state
+	var params = PhysicsPointQueryParameters2D.new()
+	params.position = get_global_mouse_position()
+	params.collide_with_areas = true   
+	params.collision_mask = 2
+	var result = space_state.intersect_point(params)
+	if result.size() > 0:
+		var collider = result[0].collider
+		var card = collider.get_parent()
+		return card  
 	return null

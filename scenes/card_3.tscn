@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://blbk7ypvogcuo"]
 
 [ext_resource type="Texture2D" uid="uid://d4gp78tlrgib1" path="res://sprites/Card RPG UI&Charactors/box.png" id="1_cv3wt"]
-[ext_resource type="Script" uid="uid://btiyd3ywd06xq" path="res://scenes/card_3.gd" id="1_rhn1m"]
+[ext_resource type="Script" uid="uid://btiyd3ywd06xq" path="res://scripts/card_3.gd" id="1_rhn1m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhn1m"]
 size = Vector2(26, 26.166668)

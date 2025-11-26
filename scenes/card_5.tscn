@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://doe8r73q8oaf0"]
 
-[ext_resource type="Script" uid="uid://u6squhyxsooq" path="res://scenes/card_5.gd" id="1_gys3s"]
+[ext_resource type="Script" uid="uid://u6squhyxsooq" path="res://scripts/card_5.gd" id="1_gys3s"]
 [ext_resource type="Texture2D" uid="uid://d4gp78tlrgib1" path="res://sprites/Card RPG UI&Charactors/box.png" id="1_i166o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gys3s"]

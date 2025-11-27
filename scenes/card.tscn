@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d81rb"]
 size = Vector2(26.220833, 26.007803)
 
-[node name="Card1" type="Node2D"]
+[node name="Card" type="Node2D"]
 script = ExtResource("1_5tcr8")
 
 [node name="CardImage" type="Sprite2D" parent="."]
@@ -20,6 +20,36 @@ region_rect = Rect2(51.857857, 25.860016, 26.142143, 26.386215)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(4, 6)
 shape = SubResource("RectangleShape2D_d81rb")
+
+[node name="CardName" type="Label" parent="."]
+offset_left = -34.0
+offset_top = -66.0
+offset_right = 33.0
+offset_bottom = -43.0
+
+[node name="CardCost" type="Label" parent="."]
+offset_left = -52.0
+offset_top = 43.0
+offset_right = -12.0
+offset_bottom = 66.0
+
+[node name="CardDmg" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 43.0
+offset_right = 48.0
+offset_bottom = 66.0
+
+[node name="CardDesc" type="Label" parent="."]
+offset_left = -20.0
+offset_top = 48.0
+offset_right = 20.0
+offset_bottom = 71.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -43.0
+offset_top = -67.0
+offset_right = 45.0
+offset_bottom = 65.0
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvfgeyyd6tv4h"]
+[gd_scene load_steps=4 format=3 uid="uid://bvfgeyyd6tv4h"]
 
-[ext_resource type="PackedScene" uid="uid://m8cfxnfmbpwi" path="res://scenes/card.tscn" id="1_80nbo"]
-[ext_resource type="Script" uid="uid://t8xx0p0g51a3" path="res://scripts/card_manager.gd" id="1_yqjtg"]
+[ext_resource type="Script" uid="uid://s4ipgbioh0hk" path="res://scenes/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://csiaigsxpyld8" path="res://scenes/card_slot.tscn" id="2_gee14"]
 [ext_resource type="Texture2D" uid="uid://4d1716045wpy" path="res://Background.png" id="8_0tnpc"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_lnu2h")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
@@ -17,9 +17,3 @@ position = Vector2(576, 250)
 
 [node name="CardSlot2" parent="." instance=ExtResource("2_gee14")]
 position = Vector2(450, 250)
-
-[node name="CardManager" type="Node2D" parent="."]
-script = ExtResource("1_yqjtg")
-
-[node name="Card" parent="CardManager" instance=ExtResource("1_80nbo")]
-position = Vector2(-70, 554)

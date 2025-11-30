@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://bqgf1162rn81i"]
+
+[ext_resource type="Script" uid="uid://be7271pfjcwv3" path="res://scripts/CardData.gd" id="1_ld6i3"]
+[ext_resource type="Texture2D" uid="uid://b234eyqxqwsgf" path="res://sprites/Axe.png" id="1_tojtc"]
+
+[resource]
+script = ExtResource("1_ld6i3")
+name = "Axe"
+cost = 4
+damage = 10
+description = "Cut your foes!"
+art = ExtResource("1_tojtc")
+metadata/_custom_type_script = "uid://be7271pfjcwv3"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://m8cfxnfmbpwi"]
 
-[ext_resource type="Script" uid="uid://c7570123bnjqv" path="res://scripts/card_1.gd" id="1_5tcr8"]
+[ext_resource type="Script" uid="uid://c7570123bnjqv" path="res://scripts/card.gd" id="1_5tcr8"]
 [ext_resource type="Texture2D" uid="uid://d4gp78tlrgib1" path="res://sprites/Card RPG UI&Charactors/box.png" id="1_l72q7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d81rb"]
@@ -16,40 +16,62 @@ region_enabled = true
 region_rect = Rect2(51.857857, 25.860016, 26.142143, 26.386215)
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(4, 6)
 shape = SubResource("RectangleShape2D_d81rb")
 
-[node name="CardName" type="Label" parent="."]
-offset_left = -34.0
-offset_top = -66.0
-offset_right = 33.0
-offset_bottom = -43.0
-
-[node name="CardCost" type="Label" parent="."]
-offset_left = -52.0
-offset_top = 43.0
-offset_right = -12.0
-offset_bottom = 66.0
-
-[node name="CardDmg" type="Label" parent="."]
-offset_left = 8.0
-offset_top = 43.0
-offset_right = 48.0
-offset_bottom = 66.0
-
-[node name="CardDesc" type="Label" parent="."]
-offset_left = -20.0
-offset_top = 48.0
-offset_right = 20.0
-offset_bottom = 71.0
-
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="CardTexture" type="TextureRect" parent="."]
+modulate = Color(0.556953, 0.556953, 0.556953, 1)
 offset_left = -43.0
 offset_top = -67.0
 offset_right = 45.0
 offset_bottom = 65.0
 
+[node name="CardName" type="Label" parent="."]
+offset_left = -34.0
+offset_top = -72.0
+offset_right = 33.0
+offset_bottom = -49.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardCost" type="Label" parent="."]
+offset_left = -48.0
+offset_top = 31.0
+offset_right = -20.0
+offset_bottom = 54.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardDmg" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 31.0
+offset_right = 48.0
+offset_bottom = 54.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardDesc" type="Label" parent="."]
+offset_left = -40.0
+offset_top = 47.0
+offset_right = 41.0
+offset_bottom = 71.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -3
+theme_override_font_sizes/font_size = 9
+text = "Description"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

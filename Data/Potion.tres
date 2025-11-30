@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://vjmqccmki0qv"]
+
+[ext_resource type="Script" uid="uid://be7271pfjcwv3" path="res://scripts/CardData.gd" id="1_5xqbm"]
+[ext_resource type="Texture2D" uid="uid://xjujp3isdj1l" path="res://sprites/Potion.png" id="1_lumdm"]
+
+[resource]
+script = ExtResource("1_5xqbm")
+name = "Potion"
+cost = 2
+damage = 1
+description = "Throw a potion at Enemy."
+art = ExtResource("1_lumdm")
+metadata/_custom_type_script = "uid://be7271pfjcwv3"

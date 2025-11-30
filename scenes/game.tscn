@@ -1,8 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvfgeyyd6tv4h"]
+[gd_scene load_steps=13 format=3 uid="uid://bvfgeyyd6tv4h"]
 
 [ext_resource type="Script" uid="uid://s4ipgbioh0hk" path="res://scenes/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://csiaigsxpyld8" path="res://scenes/card_slot.tscn" id="2_gee14"]
+[ext_resource type="Texture2D" uid="uid://6ycsp1vx0cvy" path="res://sprites/Wrench.png" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://dgph3vq4uuute" path="res://scripts/menu_button.gd" id="5_iywne"]
 [ext_resource type="Texture2D" uid="uid://4d1716045wpy" path="res://Background.png" id="8_0tnpc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbhrr"]
+bg_color = Color(0.09803922, 0.0627451, 0.03529412, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.7294118, 0.7294118, 0.7294118, 0.9882353)
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5sy4"]
+bg_color = Color(0.1406245, 0.097607456, 0.06241171, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gee14"]
+bg_color = Color(0.09803922, 0.0627451, 0.03529412, 1)
+shadow_color = Color(0.7294118, 0.7294118, 0.7294118, 0.9882353)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iywne"]
+bg_color = Color(0.14117648, 0.09803922, 0.0627451, 1)
+corner_radius_top_left = 10
+shadow_color = Color(0.7294118, 0.7294118, 0.7294118, 0.9882353)
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0tnpc"]
+bg_color = Color(0.20616919, 0.14894417, 0.1021416, 1)
+corner_radius_top_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p57ef"]
+bg_color = Color(0.14223942, 0.09682568, 0.0613615, 1)
+corner_radius_bottom_left = 10
+shadow_color = Color(0.7294118, 0.7294118, 0.7294118, 0.9882353)
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtaks"]
+bg_color = Color(0.20784314, 0.14901961, 0.101960786, 1)
+corner_radius_bottom_left = 10
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_lnu2h")
@@ -17,3 +56,42 @@ position = Vector2(576, 250)
 
 [node name="CardSlot2" parent="." instance=ExtResource("2_gee14")]
 position = Vector2(450, 250)
+
+[node name="Menu_Button" type="Button" parent="."]
+offset_left = 1037.0
+offset_top = 532.0
+offset_right = 1127.0
+offset_bottom = 564.0
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_lbhrr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u5sy4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gee14")
+text = "Menu"
+icon = ExtResource("4_lbhrr")
+expand_icon = true
+script = ExtResource("5_iywne")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu_Button"]
+visible = false
+layout_mode = 0
+offset_top = 32.0
+offset_right = 90.0
+offset_bottom = 48.0
+theme_override_constants/separation = 0
+
+[node name="Back_to_menuBtn" type="Button" parent="Menu_Button/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_iywne")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0tnpc")
+text = "Main Menu"
+
+[node name="PlaceholderBtn" type="Button" parent="Menu_Button/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_p57ef")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vtaks")
+text = "Placeholder"
+
+[connection signal="pressed" from="Menu_Button" to="Menu_Button" method="_on_pressed"]
+[connection signal="pressed" from="Menu_Button/VBoxContainer/Back_to_menuBtn" to="Menu_Button" method="_on_back_to_menu_btn_pressed"]

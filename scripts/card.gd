@@ -1,8 +1,8 @@
 class_name Card
 extends Node2D
 
-signal hovered
-signal hovered_off
+var CARD = self
+var hovering := false
 var dragging := false
 var original_pos:= Vector2.ZERO
 @export var data: CardData
@@ -21,15 +21,19 @@ func apply_data(): #zadáva hodnoty z tres files.
 	$CardTexture.expand = true
 	
 func _process(delta: float) -> void: #pohyb karty.
+	if hovering:
+		CARD.scale = Vector2(1.1, 1.1)
+	else:
+		CARD.scale = Vector2(1.0, 1.0)
 	if dragging:
 		global_position = get_global_mouse_position()
 
 func _on_area_2d_mouse_entered() -> void: # treba opraviť
-	emit_signal("hovered", self)
+	hovering = true
 
 
 func _on_area_2d_mouse_exited() -> void: # treba opraviť
-	emit_signal("hovered_off", self)
+	hovering = false
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void: #pohyb karty
